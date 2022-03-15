@@ -1,20 +1,27 @@
 package main
 
+import "fmt"
+
+type contactInfo struct {
+	email string
+	pin   int
+}
 type person struct {
 	firstName string
 	lastName  string
+	contact   contactInfo
 }
 
 func main() {
-	// alex := person{lastName: "Lima", firstName: "Alex"}
-	// fmt.Println(alex)
-	// alex.lastName = "Dickson"
-	// fmt.Println(alex)
-	Another way to assogn structs
-	var alex person
-	alex.firstName = "Alex"
-	alex.lastName = "Lima"
-	fmt.Println(alex)
-	fmt.Printf("%+v", alex) // {firstName: lastName:}
+	jim := person{
+		lastName:  "Jim",
+		firstName: "Party",
+		contact: contactInfo{
+			email: "jim@mail.com",
+			pin:   831004,
+		},
+	}
+	fmt.Println(jim)
+	fmt.Printf("%+v", jim)
 
 }
