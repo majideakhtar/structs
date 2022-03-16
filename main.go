@@ -23,17 +23,17 @@ func main() {
 	}
 
 	jim.print()
-	jim.updateName("Jimmy")
+	jimpointer := &jim
+	jimpointer.updateName("Jimmy")
 	jim.print()
 }
 
 // Structs with receiver functions
-func (p person) updateName(newFirstName string) {
-	p.firstName = newFirstName
-	p.print()
+func (pointerToPerson *person) updateName(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
+	// pointerToPerson.print()
 }
 
 func (p person) print() {
-	fmt.Println(p)
 	fmt.Printf("%+v\n", p)
 }
