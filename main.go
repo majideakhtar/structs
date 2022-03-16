@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 type contactInfo struct {
-	email string
-	pin   int
+	email   string
+	pinCode int
 }
 type person struct {
 	firstName string
@@ -17,11 +17,23 @@ func main() {
 		lastName:  "Jim",
 		firstName: "Party",
 		contact: contactInfo{
-			email: "jim@mail.com",
-			pin:   831004,
+			email:   "jim@mail.com",
+			pinCode: 831004,
 		},
 	}
-	fmt.Println(jim)
-	fmt.Printf("%+v", jim)
 
+	jim.print()
+	jim.updateName("Jimmy")
+	jim.print()
+}
+
+// Structs with receiver functions
+func (p person) updateName(newFirstName string) {
+	p.firstName = newFirstName
+	p.print()
+}
+
+func (p person) print() {
+	fmt.Println(p)
+	fmt.Printf("%+v\n", p)
 }
