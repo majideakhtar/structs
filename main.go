@@ -23,12 +23,17 @@ func main() {
 	}
 
 	jim.print()
-	jimpointer := &jim
-	jimpointer.updateName("Jimmy")
+	// jimpointer := &jim // Actual process
+	// jimpointer.updateName("Jimmy") //Actual process
+
+	// Shortcut to pointers
+	// Go automatically understands that if the receiver function is taking a pointer, we can simply give the object of same type, here we have jim
+	jim.updateName("Jimmy")
 	jim.print()
 }
 
 // Structs with receiver functions
+// For both process, the below function will be same
 func (pointerToPerson *person) updateName(newFirstName string) {
 	(*pointerToPerson).firstName = newFirstName
 	// pointerToPerson.print()
